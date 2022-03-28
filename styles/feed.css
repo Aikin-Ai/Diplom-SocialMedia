@@ -1,0 +1,18 @@
+@import "~react-image-gallery/styles/css/image-gallery.css";
+
+.post {  display: grid;
+    grid-template-columns: 1.5fr 0.5fr;
+    grid-template-rows: 0.5fr 1.5fr;
+    gap: 0px 0px;
+    grid-auto-flow: row dense;
+    grid-template-areas:
+      "image-gallery post__content"
+      "image-gallery post__comments";
+  }
+  
+  .image-gallery { grid-area: image-gallery; }
+  
+  .post__content { grid-area: post__content; }
+  
+  .post__comments { grid-area: post__comments; }
+  

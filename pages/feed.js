@@ -10,26 +10,20 @@ export async function getServerSideProps(context) {
             user: {
                 name: "Bill Gates",
                 avatar:
-                    "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Visit_of_Bill_Gates%2C_Chairman_of_Breakthrough_Energy_Ventures%2C_to_the_European_Commission_5_%28cropped%29.jpg/800px-Visit_of_Bill_Gates%2C_Chairman_of_Breakthrough_Energy_Ventures%2C_to_the_European_Commission_5_%28cropped%29.jpg",
+                    "https://cdn-icons-png.flaticon.com/512/147/147144.png",
             },
             imageURLs: [
                 {
                     original:
                         "https://picsum.photos/id/1018/1000/600/",
-                    // thumbnail:
-                    //     "https://picsum.photos/id/1018/250/150/",
                 },
                 {
                     original:
                         "https://picsum.photos/id/1015/1000/600/",
-                    // thumbnail:
-                    //     "https://picsum.photos/id/1015/250/150/",
                 },
                 {
                     original:
                         "https://picsum.photos/id/1019/1000/600/",
-                    // thumbnail:
-                    //     "https://picsum.photos/id/1019/250/150/",
                 },
             ],
             description:
