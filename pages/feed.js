@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import ImageGallery from "react-image-gallery";
 import Plyr from "plyr-react";
 import Image from "next/image";
@@ -52,14 +53,15 @@ function Post({ post }) {
         <div className="post">
             <ImageGallery items={post.imageURLs} showPlayButton={false} showIndex={true} />
             <div className="post__content">
-                <Image
+                <img
                     src={post.user.avatar}
                     alt="avatar"
                     width={48}
                     height={48}
+                    className="user__avatar"
                 />
-                <p>{post.user.name}</p>
-                <p>{post.description}</p>
+                <p className="user__name">{post.user.name}</p>
+                <p className="post__description">{post.description}</p>
             </div>
         </div>
     );

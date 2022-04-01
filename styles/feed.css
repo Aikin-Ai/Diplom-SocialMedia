@@ -2,17 +2,58 @@
 
 .post {  display: grid;
     grid-template-columns: 1.5fr 0.5fr;
-    grid-template-rows: 0.5fr 1.5fr;
-    gap: 0px 0px;
+    grid-template-rows: 0.5fr 0.5fr 2fr;
+    gap: 0px 10px;
     grid-auto-flow: row dense;
     grid-template-areas:
       "image-gallery post__content"
+      "image-gallery post__controls"
       "image-gallery post__comments";
   }
   
   .image-gallery { grid-area: image-gallery; }
   
-  .post__content { grid-area: post__content; }
+  .post__content {  display: grid;
+    grid-template-columns: 48px 1fr;
+    grid-template-rows: 48px 1fr;
+    gap: 10px 5px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "user__avatar user__name"
+      "post__description post__description";
+    grid-area: post__content;
+  }
+  
+  .user__avatar {
+    justify-self: center;
+    align-self: center;
+    grid-area: user__avatar;
+    width: 48px;
+    height: 48px;
+  }
+  
+  .user__name { grid-area: user__name; }
+  
+  .post__description { grid-area: post__description; }
   
   .post__comments { grid-area: post__comments; }
+  
+  .post__controls {  display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "repost__count likes__count"
+      "repost__button like_button";
+    grid-area: post__controls;
+  }
+  
+  .repost__count { grid-area: repost__count; }
+  
+  .likes__count { grid-area: likes__count; }
+  
+  .repost__button { grid-area: repost__button; }
+  
+  .like_button { grid-area: like_button; }
   
