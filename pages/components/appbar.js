@@ -260,14 +260,14 @@ export default function PrimarySearchAppBar() {
             component="div"
             sx={{ display: { xs: 'none', sm: 'block' } }}
           >
-            SiteName
+            Название Сайта
           </Typography>
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              placeholder="Search…"
+              placeholder="Поиск…"
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>

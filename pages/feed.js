@@ -1,8 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import Plyr from "plyr-react";
-import { Card, CardContent } from "@mui/material";
+import { Card, CardContent, IconButton } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 export async function getServerSideProps(context) {
     // array of posts
@@ -21,7 +23,7 @@ export async function getServerSideProps(context) {
                 },
                 {
                     original:
-                        "https://picsum.photos/id/1015/1000/600/",
+                        "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/800px-Image_created_with_a_mobile_phone.png",
                 },
                 {
                     original:
@@ -42,7 +44,13 @@ export async function getServerSideProps(context) {
 export default function Feed({ posts }) {
     return (
         <div className="feed">
-            <Card>
+            <IconButton className="left__button" size="large">
+                <ChevronLeftIcon fontSize="inherit"/>
+            </IconButton>
+            <IconButton className="right__button" size="large">
+                <ChevronRightIcon fontSize="inherit"/>
+            </IconButton>
+            <Card className="post__card">
                 <CardContent>
                     {posts.map(post => (
                         <Post key={post.id} post={post} />
@@ -64,7 +72,7 @@ function Post({ post }) {
                 className="mySwiper"
             >
                 {post.imageURLs.map(imageURL => (
-                    <SwiperSlide key={imageURL}><img src={imageURL.original} alt='image'></img></SwiperSlide>
+                    <SwiperSlide key={imageURL.original}><img src={imageURL.original} alt='image'></img></SwiperSlide>
                 ))};
             </Swiper>
             <div className="post__content">
