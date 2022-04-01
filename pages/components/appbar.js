@@ -22,6 +22,10 @@ import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
+import HomeIcon from '@mui/icons-material/Home';
+import GroupIcon from '@mui/icons-material/Group';
+import PersonIcon from '@mui/icons-material/Person';
+import { ListItemButton } from '@mui/material';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -184,17 +188,36 @@ export default function PrimarySearchAppBar() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {['Главная', 'Обзор', 'Сообщения', 'Профиль'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {/* {index % 2 === 0 ? <InboxIcon /> : <MailIcon />} */
-              switch (index) {
-                case 0: 
-              }}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        <ListItemButton key='Главная' component='a' href='/'> {/* Make feed index */}
+          <ListItemIcon>
+            <HomeIcon />
+          </ListItemIcon>
+          <ListItemText primary='Главная' />
+        </ListItemButton>
+        <ListItemButton key='Обзор' component='a' href='/feed'> {/* Change to explore */}
+          <ListItemIcon>
+            <SearchIcon />
+          </ListItemIcon>
+          <ListItemText primary='Обзор' />
+        </ListItemButton>
+        <ListItemButton key='Сообщения' component='a' href='/messages'>
+          <ListItemIcon>
+            <MailIcon />
+          </ListItemIcon>
+          <ListItemText primary='Сообщения' />
+        </ListItemButton>
+        <ListItemButton key='Группы'>
+          <ListItemIcon>
+            <GroupIcon />
+          </ListItemIcon>
+          <ListItemText primary='Группы' component='a' href='/groups'/>
+        </ListItemButton>
+        <ListItemButton key='Профиль'>
+          <ListItemIcon>
+            <PersonIcon />
+          </ListItemIcon>
+          <ListItemText primary='Профиль' />
+        </ListItemButton>
       </List>
       {/* <Divider />
       <List>
@@ -213,12 +236,12 @@ export default function PrimarySearchAppBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Drawer
-            anchor={'left'}
-            open={state['left']}
-            onClose={toggleDrawer('left', false)}
-          >
-            {list('left')}
-          </Drawer>
+        anchor={'left'}
+        open={state['left']}
+        onClose={toggleDrawer('left', false)}
+      >
+        {list('left')}
+      </Drawer>
       <AppBar position="static">
         <Toolbar>
           <IconButton
