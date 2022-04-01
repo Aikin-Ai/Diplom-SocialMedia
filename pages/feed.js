@@ -1,7 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
-import ImageGallery from "react-image-gallery";
 import Plyr from "plyr-react";
-import Image from "next/image";
+import { Card, CardContent } from "@mui/material";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper";
 
 export async function getServerSideProps(context) {
     // array of posts
@@ -41,9 +42,13 @@ export async function getServerSideProps(context) {
 export default function Feed({ posts }) {
     return (
         <div className="feed">
-            {posts.map(post => (
-                <Post key={post.id} post={post} />
-            ))}
+            <Card>
+                <CardContent>
+                    {posts.map(post => (
+                        <Post key={post.id} post={post} />
+                    ))}
+                </CardContent>
+            </Card>
         </div>
     );
 }
@@ -51,7 +56,17 @@ export default function Feed({ posts }) {
 function Post({ post }) {
     return (
         <div className="post">
-            <ImageGallery items={post.imageURLs} showPlayButton={false} showIndex={true} />
+            <Swiper
+                pagination={{
+                    dynamicBullets: true,
+                }}
+                modules={[Pagination]}
+                className="mySwiper"
+            >
+                {post.imageURLs.map(imageURL => (
+                    <SwiperSlide key={imageURL}><img src={imageURL.original} alt='image'></img></SwiperSlide>
+                ))};
+            </Swiper>
             <div className="post__content">
                 <img
                     src={post.user.avatar}
