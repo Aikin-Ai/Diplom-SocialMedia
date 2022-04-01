@@ -184,16 +184,19 @@ export default function PrimarySearchAppBar() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+        {['Главная', 'Обзор', 'Сообщения', 'Профиль'].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              {/* {index % 2 === 0 ? <InboxIcon /> : <MailIcon />} */
+              switch (index) {
+                case 0: 
+              }}
             </ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
         ))}
       </List>
-      <Divider />
+      {/* <Divider />
       <List>
         {['All mail', 'Trash', 'Spam'].map((text, index) => (
           <ListItem button key={text}>
@@ -203,7 +206,7 @@ export default function PrimarySearchAppBar() {
             <ListItemText primary={text} />
           </ListItem>
         ))}
-      </List>
+      </List> */}
     </Box>
   );
 
@@ -234,7 +237,7 @@ export default function PrimarySearchAppBar() {
             component="div"
             sx={{ display: { xs: 'none', sm: 'block' } }}
           >
-            MUI
+            SiteName
           </Typography>
           <Search>
             <SearchIconWrapper>
