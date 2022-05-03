@@ -108,7 +108,7 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+      <MenuItem onClick={function(){ handleMenuClose; location.assign("/profile")}}>Профиль</MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
     </Menu>
   );
@@ -130,13 +130,13 @@ export default function PrimarySearchAppBar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
+      <MenuItem onClick={() => { location.assign("/messages"); }}>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="error">
             <MailIcon />
           </Badge>
         </IconButton>
-        <p>Messages</p>
+        <p>Сообщения</p>
       </MenuItem>
       <MenuItem>
         <IconButton
@@ -148,7 +148,7 @@ export default function PrimarySearchAppBar() {
             <NotificationsIcon />
           </Badge>
         </IconButton>
-        <p>Notifications</p>
+        <p>Уведомления</p>
       </MenuItem>
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
@@ -206,13 +206,13 @@ export default function PrimarySearchAppBar() {
           </ListItemIcon>
           <ListItemText primary='Сообщения' />
         </ListItemButton>
-        <ListItemButton key='Группы'>
+        <ListItemButton key='Группы' component='a' href='/groups'>
           <ListItemIcon>
             <GroupIcon />
           </ListItemIcon>
-          <ListItemText primary='Группы' component='a' href='/groups'/>
+          <ListItemText primary='Группы' />
         </ListItemButton>
-        <ListItemButton key='Профиль'>
+        <ListItemButton key='Профиль' component='a' href='/profile'>
           <ListItemIcon>
             <PersonIcon />
           </ListItemIcon>
@@ -273,7 +273,7 @@ export default function PrimarySearchAppBar() {
           </Search>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+            <IconButton size="large" aria-label="show 4 new mails" color="inherit" onClick={() => { location.assign("/messages"); }}>
               <Badge badgeContent={4} color="error">
                 <MailIcon />
               </Badge>
