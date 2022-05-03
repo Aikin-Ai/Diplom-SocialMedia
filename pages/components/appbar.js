@@ -194,7 +194,7 @@ export default function PrimarySearchAppBar() {
           </ListItemIcon>
           <ListItemText primary='Главная' />
         </ListItemButton>
-        <ListItemButton key='Обзор' component='a' href='/feed'> {/* Change to explore */}
+        <ListItemButton key='Обзор' component='a' href='/feed?id=1'> {/* Change to explore */}
           <ListItemIcon>
             <SearchIcon />
           </ListItemIcon>

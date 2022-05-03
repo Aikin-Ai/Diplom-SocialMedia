@@ -88,12 +88,12 @@
 
 .left__button {
   grid-area: left__button;
-  border-radius: 4px;
+  border-radius: 4px !important;
 }
 
 .right__button {
   grid-area: right__button;
-  border-radius: 4px;
+  border-radius: 4px !important;
 }
 
 .post__card {
