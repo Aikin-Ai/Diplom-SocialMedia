@@ -7,6 +7,8 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import ShareIcon from '@mui/icons-material/Share';
+import Authentication from "./components/auth";
+
 
 export async function getServerSideProps(context) {
 
@@ -83,6 +85,7 @@ export async function getServerSideProps(context) {
 export default function Feed({ post }) {
     return (
         <div className="feed">
+            {Authentication()}
             <IconButton className="left__button" size="large" onClick={changeId(-1, post.id)}>
                 <ChevronLeftIcon fontSize="inherit" />
             </IconButton>
