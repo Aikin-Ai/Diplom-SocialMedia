@@ -60,7 +60,7 @@
 
 .post__controls {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.8fr 1.2fr;
   grid-template-rows: 1fr 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
@@ -71,19 +71,34 @@
 }
 
 .repost__count {
+  align-content: center;
   grid-area: repost__count;
+  border-top: rgb(239, 243, 244) solid 1px;
+  border-bottom: rgb(239, 243, 244) solid 1px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-left: 4px;
+  padding-right: 4px;
 }
 
 .likes__count {
   grid-area: likes__count;
+  border-top: rgb(239, 243, 244) solid 1px;
+  border-bottom: rgb(239, 243, 244) solid 1px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-left: 4px;
+  padding-right: 4px;
 }
 
 .repost__button {
   grid-area: repost__button;
+  border-radius: 4px !important;
 }
 
 .like_button {
   grid-area: like_button;
+  border-radius: 4px !important;
 }
 
 .left__button {

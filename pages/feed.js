@@ -5,6 +5,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
+import ShareIcon from '@mui/icons-material/Share';
 
 export async function getServerSideProps(context) {
 
@@ -34,6 +36,8 @@ export async function getServerSideProps(context) {
             ],
             description:
                 "Lorem ipsum dolor sit amet, consect",
+            likes: 10,
+            reposts: 5,
         },
         {
             id: 2,
@@ -58,6 +62,8 @@ export async function getServerSideProps(context) {
             ],
             description:
                 "Lorem ipsum dolor sit amet, consect",
+            likes: 15,
+            reposts: 2,
         }];
 
     var post = posts.find(post => post.id == id);
@@ -126,6 +132,16 @@ function Post({ post }) {
                 />
                 <p className="user__name">{post.user.name}</p>
                 <p className="post__description">{post.description}</p>
+            </div>
+            <div className="post__controls">
+                <p className="repost__count">{post.reposts} репостов</p>
+                <p className="likes__count">{post.likes} отметок «Нравится»</p>
+                <IconButton className="like_button" onClick={() => { }}>
+                    <ThumbUpOffAltIcon />
+                </IconButton>
+                <IconButton className="repost__button" onClick={() => { }}>
+                    <ShareIcon />
+                </IconButton>
             </div>
         </div>
     );
