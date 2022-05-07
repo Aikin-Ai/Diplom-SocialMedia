@@ -1,7 +1,6 @@
-import { Card, CardContent, IconButton } from "@mui/material";
+import { IconButton } from "@mui/material";
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import Authentication from "./components/auth";
 import Post from "./components/post";
 
 

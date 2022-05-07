@@ -10,14 +10,14 @@ export default NextAuth({
             clientSecret: process.env.GITHUB_SECRET,
             profile(profile) {
                 return {
-                  id: profile.id.toString(),
-                  name: profile.name,
-                  login: profile.login,
-                  email: profile.email,
-                  image: profile.avatar_url,
-                  location: profile.location,
+                    id: profile.id.toString(),
+                    name: profile.name,
+                    login: profile.login,
+                    email: profile.email,
+                    image: profile.avatar_url,
+                    location: profile.location,
                 }
-              },
+            },
         }),
         GoogleProvider({
             clientId: process.env.GOOGLE_ID,
@@ -27,8 +27,18 @@ export default NextAuth({
     ],
     secret: "wQaig9vo97SHEwry4roPMWUHkaG15VjGyXONXKS3vuE=",
     theme: {
-        colorScheme: "auto",
+        colorScheme: "light",
         //brandColor: "",
         //logo: "",
+    },
+    callbacks: {
+        jwt: async ({ token, user }) => {
+            user && (token.user = user)
+            return token
+        },
+        session: async ({ session, token }) => {
+            session.user = token.user
+            return session
+        }
     }
 })

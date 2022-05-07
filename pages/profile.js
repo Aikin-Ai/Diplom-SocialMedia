@@ -80,7 +80,7 @@ export default function Profile({ posts }) {
                     {posts.map(post => (
                         <>
                             <Post key={post.id} post={post} />
-                            <br key={post.id + 100}/>
+                            <br key={post.id + 100} />
                         </>
                     ))}
                 </div>
