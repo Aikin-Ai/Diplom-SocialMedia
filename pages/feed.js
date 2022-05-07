@@ -80,7 +80,6 @@ export async function getServerSideProps(context) {
 export default function Feed({ post }) {
     return (
         <div className="feed">
-            <Authentication />
             <IconButton className="left__button" size="large" onClick={changeId(-1, post.id)}>
                 <ChevronLeftIcon fontSize="inherit" />
             </IconButton>

@@ -25,7 +25,8 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import HomeIcon from '@mui/icons-material/Home';
 import GroupIcon from '@mui/icons-material/Group';
 import PersonIcon from '@mui/icons-material/Person';
-import { ListItemButton } from '@mui/material';
+import { Avatar, ListItemButton } from '@mui/material';
+import { useSession, signIn, signOut } from 'next-auth/react';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -68,6 +69,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function PrimarySearchAppBar() {
+  const { data: session } = useSession();
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -108,8 +111,14 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={function(){ handleMenuClose; location.assign("/profile")}}>Профиль</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      {session ? (
+        <>
+          <MenuItem onClick={function () { handleMenuClose; location.assign("/profile") }}>Профиль</MenuItem>
+          <MenuItem onClick={signOut}>Выйти</MenuItem>
+        </>
+      ) : (
+        <MenuItem onClick={signIn}>Войти</MenuItem>
+      )}
     </Menu>
   );
 
@@ -158,7 +167,11 @@ export default function PrimarySearchAppBar() {
           aria-haspopup="true"
           color="inherit"
         >
-          <AccountCircle />
+          {session ? (
+            <Avatar src={session.user.image} />
+          ) : (
+            <Avatar>?</Avatar>
+          )}
         </IconButton>
         <p>Profile</p>
       </MenuItem>
@@ -296,7 +309,11 @@ export default function PrimarySearchAppBar() {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-              <AccountCircle />
+              {session ? (
+                <Avatar src={session.user.image} />
+              ) : (
+                <Avatar>?</Avatar>
+              )}
             </IconButton>
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
