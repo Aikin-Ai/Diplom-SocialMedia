@@ -72,15 +72,15 @@ export default function Profile({ posts }) {
     if (session) {
         return (
             <div className="container">
-                <div className="profile__name">
+                {/* <div className="profile__name">
                     <h1>{session.user.name}</h1>
-                </div>
+                </div> */}
                 <div className="profile__posts">
-                    <h2>Latest posts:</h2>
+                    <h2>Новые посты:</h2>
                     {posts.map(post => (
                         <>
-                            <Post key={post.id} post={post} />
-                            <br key={post.id + 100} />
+                            <Post post={post} height={"400px"} />
+                            <br />
                         </>
                     ))}
                 </div>
@@ -88,6 +88,7 @@ export default function Profile({ posts }) {
                     <div className="profile__image">
                         <img src={session.user.image} alt="user avatar" />
                     </div>
+                    {/* profile__login down */}
                     <div className="profile__name2">
                         @{session.user.login ? (
                             session.user.login
@@ -100,14 +101,11 @@ export default function Profile({ posts }) {
                     </div>
                     <div className="profile__city">
                         {session.user.location ? (
-                            <><b>Location:</b> {session.user.location}</>) : (
-                            <><b>Location:</b> Unknown</>)}
-                    </div>
-                    <div className="profile__gender">
-                        <b>Gender:</b> Male
+                            <><b>Локация:</b> {session.user.location}</>) : (
+                            <><b>Локация:</b> Unknown</>)}
                     </div>
                     <div className="profile__dob">
-                        <b>DOB:</b> 10.01.2002
+                        <b>Дата рождения:</b> 10.01.2002
                     </div>
                 </Card>
             </div>
@@ -121,7 +119,7 @@ export default function Profile({ posts }) {
                 height: "calc(100vh - 64px)",
             }}>
                 <h1>
-                    <a onClick={signIn}>You must be logged in to view this page</a>
+                    <a onClick={signIn}>Вы должны войти, чтобы просмотреть эту страницу</a>
                 </h1>
             </div>
         )

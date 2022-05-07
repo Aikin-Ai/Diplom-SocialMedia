@@ -7,12 +7,16 @@ import ShareIcon from '@mui/icons-material/Share';
 import IconButton from '@mui/material/IconButton';
 import { Card, CardContent } from '@mui/material';
 
-export default function Post({ post }) {
+export default function Post({ post, height = "calc(100vh - 128px)" }) {
+    console.log(height);
     return (
-
         <Card className="post__card">
             <CardContent>
-                <div className="post">
+                <div
+                    className="post"
+                    style={{
+                        height: height,
+                    }}>
                     <Swiper
                         pagination={{
                             dynamicBullets: true,
