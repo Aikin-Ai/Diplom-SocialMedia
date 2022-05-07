@@ -4,9 +4,9 @@ import {Swiper, SwiperSlide} from 'swiper/react';
 import {Pagination} from 'swiper';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import ShareIcon from '@mui/icons-material/Share';
-import IconButton from '@material-ui/core/IconButton';
+import IconButton from '@mui/material/IconButton';
 
-function Post({ post }) {
+export default function Post({ post }) {
     return (
         <div className="post">
             <Swiper

@@ -1,0 +1,134 @@
+.post {
+    height: calc(100vh - 128px) !important;
+    display: grid;
+    grid-template-columns: 1.5fr 0.5fr;
+    grid-template-rows: 0.5fr 0.5fr 2fr;
+    gap: 0px 10px;
+    grid-auto-flow: row dense;
+    grid-template-areas:
+        "image-gallery post__content"
+        "image-gallery post__controls"
+        "image-gallery post__comments";
+}
+
+.post__content {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    grid-template-rows: 48px 1fr;
+    gap: 10px 5px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "user__avatar user__name"
+        "post__description post__description";
+    grid-area: post__content;
+}
+
+.user__avatar {
+    justify-self: center;
+    align-self: center;
+    grid-area: user__avatar;
+    width: 48px;
+    height: 48px;
+}
+
+.user__name {
+    grid-area: user__name;
+}
+
+.post__description {
+    grid-area: post__description;
+}
+
+.post__comments {
+    grid-area: post__comments;
+}
+
+.post__controls {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "repost__count likes__count"
+        "repost__button like_button";
+    grid-area: post__controls;
+}
+
+.repost__count {
+    align-content: center;
+    grid-area: repost__count;
+    border-top: rgb(239, 243, 244) solid 1px;
+    border-bottom: rgb(239, 243, 244) solid 1px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.likes__count {
+    grid-area: likes__count;
+    border-top: rgb(239, 243, 244) solid 1px;
+    border-bottom: rgb(239, 243, 244) solid 1px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.repost__button {
+    grid-area: repost__button;
+    border-radius: 4px !important;
+}
+
+.like_button {
+    grid-area: like_button;
+    border-radius: 4px !important;
+}
+
+.left__button {
+    grid-area: left__button;
+    border-radius: 4px !important;
+}
+
+.right__button {
+    grid-area: right__button;
+    border-radius: 4px !important;
+}
+
+.post__card {
+    grid-area: post__card;
+}
+
+.swiper {
+    grid-area: image-gallery;
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}

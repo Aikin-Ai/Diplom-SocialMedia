@@ -1,5 +1,6 @@
 import '../styles/globals.css'
 import "../styles/feed.css";
+import "../styles/post.css";
 import "plyr-react/dist/plyr.css";
 import "swiper/css";
 import "swiper/css/pagination";
