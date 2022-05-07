@@ -89,13 +89,19 @@ export default function Profile({ posts }) {
                         <img src={session.user.image} alt="user avatar" />
                     </div>
                     <div className="profile__name2">
-                        @{session.user.login}
+                        @{session.user.login ? (
+                            session.user.login
+                        ) : (
+                            session.user.name
+                        )}
                     </div>
                     <div className="profile__email">
                         <b>Email:</b> {session.user.email}
                     </div>
                     <div className="profile__city">
-                        <b>Location:</b> {session.user.location}
+                        {session.user.location ? (
+                            <><b>Location:</b> {session.user.location}</>) : (
+                            <><b>Location:</b> Unknown</>)}
                     </div>
                     <div className="profile__gender">
                         <b>Gender:</b> Male

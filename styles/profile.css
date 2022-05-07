@@ -53,6 +53,11 @@
     padding-left: 20px;
 }
 
+.profile__image img{
+    width: 400px;
+    height: 400px;
+}
+
 .profile__name2 {
     grid-area: profile__name2;
 }
