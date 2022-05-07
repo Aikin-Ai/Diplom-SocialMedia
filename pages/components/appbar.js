@@ -112,10 +112,8 @@ export default function PrimarySearchAppBar() {
       onClose={handleMenuClose}
     >
       {session ? (
-        <>
-          <MenuItem onClick={function () { handleMenuClose; location.assign("/profile") }}>Профиль</MenuItem>
-          <MenuItem onClick={signOut}>Выйти</MenuItem>
-        </>
+          [<MenuItem key="1" onClick={function () { handleMenuClose; location.assign("/profile") }}>Профиль</MenuItem>,
+          <MenuItem key="2" onClick={signOut}>Выйти</MenuItem>]
       ) : (
         <MenuItem onClick={signIn}>Войти</MenuItem>
       )}
@@ -173,7 +171,7 @@ export default function PrimarySearchAppBar() {
             <Avatar>?</Avatar>
           )}
         </IconButton>
-        <p>Profile</p>
+        <p>Профиль</p>
       </MenuItem>
     </Menu>
   );

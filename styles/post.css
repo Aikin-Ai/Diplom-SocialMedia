@@ -86,16 +86,6 @@
     border-radius: 4px !important;
 }
 
-.left__button {
-    grid-area: left__button;
-    border-radius: 4px !important;
-}
-
-.right__button {
-    grid-area: right__button;
-    border-radius: 4px !important;
-}
-
 .post__card {
     grid-area: post__card;
 }

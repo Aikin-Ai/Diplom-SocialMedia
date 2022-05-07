@@ -86,13 +86,9 @@ export default function Feed({ post }) {
             <IconButton className="right__button" size="large" onClick={changeId(1, post.id)}>
                 <ChevronRightIcon fontSize="inherit" />
             </IconButton>
-            <Card className="post__card">
-                <CardContent>
-                    {/* {posts.map(post => ( */}
-                    <Post key={post.id} post={post} />
-                    {/* // ))} */}
-                </CardContent>
-            </Card>
+            {/* {posts.map(post => ( */}
+            <Post key={post.id} post={post} />
+            {/* // ))} */}
         </div>
     );
 }

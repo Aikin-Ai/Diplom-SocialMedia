@@ -12,3 +12,13 @@
   grid-template-areas:
     "left__button post__card right__button";
 }
+
+.left__button {
+  grid-area: left__button;
+  border-radius: 4px !important;
+}
+
+.right__button {
+  grid-area: right__button;
+  border-radius: 4px !important;
+}
