@@ -1,13 +1,8 @@
-/* eslint-disable @next/next/no-img-element */
-import Plyr from "plyr-react";
 import { Card, CardContent, IconButton } from "@mui/material";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper";
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
-import ShareIcon from '@mui/icons-material/Share';
 import Authentication from "./components/auth";
+import Post from "./components/post";
 
 
 export async function getServerSideProps(context) {
@@ -85,7 +80,7 @@ export async function getServerSideProps(context) {
 export default function Feed({ post }) {
     return (
         <div className="feed">
-            {Authentication()}
+            <Authentication />
             <IconButton className="left__button" size="large" onClick={changeId(-1, post.id)}>
                 <ChevronLeftIcon fontSize="inherit" />
             </IconButton>
@@ -109,43 +104,4 @@ function changeId(inc, id) {
     return () => {
         window.location.href = `/feed?id=${id}`;
     }
-}
-
-function Post({ post }) {
-    return (
-        <div className="post">
-            <Swiper
-                pagination={{
-                    dynamicBullets: true,
-                }}
-                modules={[Pagination]}
-                className="mySwiper"
-            >
-                {post.imageURLs.map(imageURL => (
-                    <SwiperSlide key={imageURL.original}><img src={imageURL.original} alt='image'></img></SwiperSlide>
-                ))};
-            </Swiper>
-            <div className="post__content">
-                <img
-                    src={post.user.avatar}
-                    alt="avatar"
-                    width={48}
-                    height={48}
-                    className="user__avatar"
-                />
-                <p className="user__name">{post.user.name}</p>
-                <p className="post__description">{post.description}</p>
-            </div>
-            <div className="post__controls">
-                <p className="repost__count">{post.reposts} репостов</p>
-                <p className="likes__count">{post.likes} отметок «Нравится»</p>
-                <IconButton className="like_button" onClick={() => { }}>
-                    <ThumbUpOffAltIcon />
-                </IconButton>
-                <IconButton className="repost__button" onClick={() => { }}>
-                    <ShareIcon />
-                </IconButton>
-            </div>
-        </div>
-    );
 }
