@@ -45,15 +45,11 @@ export async function getServerSideProps(context) {
             imageURLs: [
                 {
                     original:
-                        "https://picsum.photos/id/1018/1000/600/",
+                        "https://cdn.pixabay.com/photo/2018/01/06/19/02/drop-3065629_960_720.jpg",
                 },
                 {
                     original:
-                        "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/800px-Image_created_with_a_mobile_phone.png",
-                },
-                {
-                    original:
-                        "https://picsum.photos/id/1019/1000/600/",
+                        "https://cdn.pixabay.com/photo/2021/10/07/14/15/ghost-6688754_960_720.jpg",
                 },
             ],
             description:
