@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
-import { Card, CardContent, Divider } from "@mui/material";
+import { Button, Card, CardContent, Divider, IconButton } from "@mui/material";
 import { useSession, signIn } from "next-auth/react";
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import Post from "./components/post";
 
 export async function getServerSideProps(context) {
@@ -9,22 +10,18 @@ export async function getServerSideProps(context) {
         {
             id: 1,
             user: {
-                name: "Bill Gates",
+                name: "Andrey Reznikov",
                 avatar:
-                    "https://cdn-icons-png.flaticon.com/512/147/147144.png",
+                    "https://avatars.githubusercontent.com/u/30435253?v=4",
             },
             imageURLs: [
                 {
                     original:
-                        "https://picsum.photos/id/1018/1000/600/",
+                        "https://cdn.pixabay.com/photo/2016/03/27/17/42/man-1283235_960_720.jpg",
                 },
                 {
                     original:
-                        "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/800px-Image_created_with_a_mobile_phone.png",
-                },
-                {
-                    original:
-                        "https://picsum.photos/id/1019/1000/600/",
+                        "https://cdn.pixabay.com/photo/2020/01/11/16/29/animal-4758004_960_720.jpg",
                 },
             ],
             description:
@@ -35,22 +32,18 @@ export async function getServerSideProps(context) {
         {
             id: 2,
             user: {
-                name: "Gill Bates",
+                name: "Andrey Reznikov",
                 avatar:
-                    "https://cdn-icons-png.flaticon.com/512/147/147142.png",
+                    "https://avatars.githubusercontent.com/u/30435253?v=4",
             },
             imageURLs: [
                 {
                     original:
-                        "https://picsum.photos/id/1018/1000/600/",
+                        "https://cdn.pixabay.com/photo/2016/12/06/01/26/colour-1885352_960_720.jpg",
                 },
                 {
                     original:
-                        "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/800px-Image_created_with_a_mobile_phone.png",
-                },
-                {
-                    original:
-                        "https://picsum.photos/id/1019/1000/600/",
+                        "https://cdn.pixabay.com/photo/2018/03/30/18/48/potion-3276168_960_720.jpg",
                 },
             ],
             description:
@@ -72,11 +65,8 @@ export default function Profile({ posts }) {
     if (session) {
         return (
             <div className="container">
-                {/* <div className="profile__name">
-                    <h1>{session.user.name}</h1>
-                </div> */}
                 <div className="profile__posts">
-                    <h2>Новые посты:</h2>
+                    <h2>Последние посты:</h2>
                     {posts.map(post => (
                         <>
                             <Post post={post} height={"400px"} />
@@ -88,24 +78,46 @@ export default function Profile({ posts }) {
                     <div className="profile__image">
                         <img src={session.user.image} alt="user avatar" />
                     </div>
-                    {/* profile__login down */}
-                    <div className="profile__name2">
+                    {/* visible if user on his page */}
+                    <div className="profile__modify__button">
+                        <Button variant="outlined">
+                            Изменить профиль
+                        </Button>
+                    </div>
+                    <div className="profile__name">
+                        <h2>{session.user.name}</h2>
+                    </div>
+                    {/* visible only if user on someone else's page */}
+                    <div className="profile__pm__button">
+                        <IconButton>
+                            <MailOutlineIcon />
+                        </IconButton>
+                    </div>
+                    <div className="profile__login">
                         @{session.user.login ? (
                             session.user.login
                         ) : (
                             session.user.name
                         )}
                     </div>
-                    <div className="profile__email">
-                        <b>Email:</b> {session.user.email}
-                    </div>
-                    <div className="profile__city">
-                        {session.user.location ? (
-                            <><b>Локация:</b> {session.user.location}</>) : (
-                            <><b>Локация:</b> Unknown</>)}
-                    </div>
                     <div className="profile__dob">
-                        <b>Дата рождения:</b> 10.01.2002
+                        <b>Дата рождения:</b><br/>10.01.2002
+                    </div>
+                    <div className="profile__email">
+                        <b>Email:</b><br/>
+                        {session.user.email}
+                    </div>
+                    <div className="profile__followers">
+                        <b>Подписчиков:</b><br/>0
+                    </div>
+                    <div className="profile__following">
+                        <b>Подписок:</b><br/>0
+                    </div>
+                    {/* visible if user on his page */}
+                    <div className="profile__new_post__button">
+                        <Button variant="contained" fullWidth>
+                            <b>Написать пост</b>
+                        </Button>
                     </div>
                 </Card>
             </div>

@@ -20,29 +20,27 @@
 
 .profile__information {
     height: 512px;
+    grid-area: profile__information;
+    padding: 20px;
     display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    grid-auto-columns: auto;
+    /* grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr; */
+    grid-auto-rows: auto;
     gap: 0px 0px;
     grid-auto-flow: row;
     grid-template-areas:
-        "profile__image profile__name2"
-        "profile__image profile__email"
-        "profile__image profile__city"
-        "profile__image profile__gender"
-        "profile__image profile__dob";
-    grid-area: profile__information;
-    padding: 20px;
+        "profile__image profile__modify__button profile__modify__button"
+        "profile__name profile__name profile__pm__button"
+        "profile__login . ."
+        "profile__dob profile__dob ."
+        "profile__email profile__email profile__email"
+        "profile__followers . profile__following"
+        "profile__new_post__button profile__new_post__button profile__new_post__button";
 }
 
 .profile__image {
     grid-area: profile__image;
-    border-right: 1px solid rgb(231, 235, 240);
-    margin: auto;
-    margin-right: 20px;
-    margin-left: 20px;
-    padding-right: 20px;
-    padding-left: 20px;
 }
 
 .profile__image img {
@@ -50,22 +48,49 @@
     height: 80px;
 }
 
-.profile__name2 {
-    grid-area: profile__name2;
+.profile__login {
+    grid-area: profile__login;
+}
+
+.profile__modify__button {
+    grid-area: profile__modify__button;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.profile__name {
+    grid-area: profile__name;
+}
+
+.profile__name h2{
+    margin: auto;
+}
+
+.profile__followers {
+    grid-area: profile__followers;
+}
+
+.profile__dob {
+    grid-area: profile__dob;
 }
 
 .profile__email {
     grid-area: profile__email;
 }
 
-.profile__city {
-    grid-area: profile__city;
+.profile__following {
+    grid-area: profile__following;
 }
 
-.profile__gender {
-    grid-area: profile__gender;
+.profile__new_post__button {
+    grid-area: profile__new_post__button;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
-.profile__dob {
-    grid-area: profile__dob;
+.profile__pm__button {
+    grid-area: profile__pm__button;
+    height: 48px;
+    margin-left: auto;
+    margin-right: 0;
 }

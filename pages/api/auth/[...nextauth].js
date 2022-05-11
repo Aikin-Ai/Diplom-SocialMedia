@@ -15,7 +15,6 @@ export default NextAuth({
                     login: profile.login,
                     email: profile.email,
                     image: profile.avatar_url,
-                    location: profile.location,
                 }
             },
         }),
