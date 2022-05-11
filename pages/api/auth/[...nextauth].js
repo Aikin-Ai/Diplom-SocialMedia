@@ -24,7 +24,6 @@ export default NextAuth({
         }),
         // ...add more providers here
     ],
-    secret: "wQaig9vo97SHEwry4roPMWUHkaG15VjGyXONXKS3vuE=",
     theme: {
         colorScheme: "auto",
         //brandColor: "",
