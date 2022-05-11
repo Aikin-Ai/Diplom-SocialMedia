@@ -1,5 +1,4 @@
 .post {
-    /* height: calc(100vh - 128px) !important; */
     display: grid;
     grid-template-columns: 1.5fr 0.5fr;
     grid-template-rows: 0.5fr 0.5fr 2fr;
@@ -99,7 +98,6 @@
 .swiper-slide {
     text-align: center;
     font-size: 18px;
-    background: #fff;
 
     /* Center slide text vertically */
     display: -webkit-box;
