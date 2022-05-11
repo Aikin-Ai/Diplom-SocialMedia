@@ -9,6 +9,13 @@ import IconButton from '@mui/material/IconButton';
 import { Avatar, Card, CardContent } from '@mui/material';
 import { useState } from "react";
 
+//mark page as server side loaded
+export async function getServerSideProps(context) {
+    return {
+        props: {},
+    }
+}
+
 export default function Post({ post, height = "calc(100vh - 128px)" }) {
     const [isLiked, setIsLiked] = useState(false);
     const [isReposted, setIsReposted] = useState(false);
