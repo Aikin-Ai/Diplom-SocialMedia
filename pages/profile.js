@@ -79,11 +79,11 @@ export default function Profile({ posts }) {
                         <img src={session.user.image} alt="user avatar" />
                     </div>
                     {/* visible if user on his page */}
-                    <div className="profile__modify__button">
+                    {/* <div className="profile__modify__button">
                         <Button variant="outlined">
                             Изменить профиль
                         </Button>
-                    </div>
+                    </div> */}
                     <div className="profile__name">
                         <h2>{session.user.name}</h2>
                     </div>
