@@ -6,7 +6,7 @@ import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import ShareIcon from '@mui/icons-material/Share';
 import IconButton from '@mui/material/IconButton';
-import { Card, CardContent } from '@mui/material';
+import { Avatar, Card, CardContent } from '@mui/material';
 import { useState } from "react";
 
 export default function Post({ post, height = "calc(100vh - 128px)" }) {
@@ -44,7 +44,7 @@ export default function Post({ post, height = "calc(100vh - 128px)" }) {
                         ))};
                     </Swiper>
                     <div className="post__content">
-                        <img
+                        <Avatar
                             src={post.user.avatar}
                             alt="avatar"
                             width={48}
