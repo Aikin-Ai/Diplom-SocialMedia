@@ -25,7 +25,7 @@ export async function getServerSideProps(context) {
                 },
             ],
             description:
-                "Lorem ipsum dolor sit amet, consect",
+                "Тестовый текст",
             likes: 10,
             reposts: 5,
         },
@@ -47,7 +47,7 @@ export async function getServerSideProps(context) {
                 },
             ],
             description:
-                "Lorem ipsum dolor sit amet, consect",
+                "Тестовый текст",
             likes: 15,
             reposts: 2,
         }];

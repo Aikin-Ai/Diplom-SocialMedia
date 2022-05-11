@@ -27,6 +27,8 @@ import GroupIcon from '@mui/icons-material/Group';
 import PersonIcon from '@mui/icons-material/Person';
 import { Avatar, ListItemButton } from '@mui/material';
 import { useSession, signIn, signOut } from 'next-auth/react';
+import Image from 'next/image';
+import logo from '../../public/siteicon.png';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -265,13 +267,14 @@ export default function PrimarySearchAppBar() {
           >
             <MenuIcon />
           </IconButton>
+          <Image src={logo} width={40} height={40} alt="site icon" />
           <Typography
             variant="h6"
             noWrap
             component="div"
             sx={{ display: { xs: 'none', sm: 'block' } }}
           >
-            Название Сайта
+            SnapTalk
           </Typography>
           <Search>
             <SearchIconWrapper>

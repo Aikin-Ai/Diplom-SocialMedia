@@ -26,7 +26,7 @@ export default NextAuth({
     ],
     secret: "wQaig9vo97SHEwry4roPMWUHkaG15VjGyXONXKS3vuE=",
     theme: {
-        colorScheme: "light",
+        colorScheme: "auto",
         //brandColor: "",
         //logo: "",
     },
