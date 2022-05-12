@@ -7,7 +7,7 @@ import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import ShareIcon from '@mui/icons-material/Share';
 import IconButton from '@mui/material/IconButton';
 import { Avatar, Card, CardContent, Typography, Divider } from '@mui/material';
-import { useState } from "react";
+import React, { useState } from "react";
 import Grid from '@mui/material/Grid';
 
 //mark page as server side loaded
@@ -75,9 +75,9 @@ export default function Post({ post, height = "calc(100vh - 128px)" }) {
                     <div className="post__comments">
                         {post.comments !== undefined ?
                             post.comments.map(comment => (
-                                <>
+                                <React.Fragment key={comment.id}>
                                     <Divider variant="fullWidth" style={{ margin: "10px 0" }} />
-                                    <Grid container spacing={2} className="comment" key={comment.id}>
+                                    <Grid container spacing={2} className="comment">
                                         <Grid item>
                                             <Avatar
                                                 src={comment.user.avatar}
@@ -96,7 +96,7 @@ export default function Post({ post, height = "calc(100vh - 128px)" }) {
                                             </Grid>
                                         </Grid>
                                     </Grid>
-                                </>
+                                </React.Fragment>
                             )) : <></>}
                     </div>
                 </div>
