@@ -6,8 +6,9 @@ import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import ShareIcon from '@mui/icons-material/Share';
 import IconButton from '@mui/material/IconButton';
-import { Avatar, Card, CardContent } from '@mui/material';
+import { Avatar, Card, CardContent, Typography, Divider } from '@mui/material';
 import { useState } from "react";
+import Grid from '@mui/material/Grid';
 
 //mark page as server side loaded
 export async function getServerSideProps(context) {
@@ -70,6 +71,33 @@ export default function Post({ post, height = "calc(100vh - 128px)" }) {
                         <IconButton className="repost__button" onClick={() => { handleRepost() }}>
                             {isReposted ? <ShareIcon color="primary" /> : <ShareIcon />}
                         </IconButton>
+                    </div>
+                    <div className="post__comments">
+                        {post.comments !== undefined ?
+                            post.comments.map(comment => (
+                                <>
+                                    <Divider variant="fullWidth" style={{ margin: "10px 0" }} />
+                                    <Grid container spacing={2} className="comment" key={comment.id}>
+                                        <Grid item>
+                                            <Avatar
+                                                src={comment.user.avatar}
+                                                alt="avatar"
+                                                width={48}
+                                                height={48}
+                                                className="user__avatar"
+                                            />
+                                        </Grid>
+                                        <Grid container direction="column" item xs zeroMinWidth>
+                                            <Grid item>
+                                                <Typography>{comment.user.name}</Typography>
+                                            </Grid>
+                                            <Grid item xs>
+                                                <Typography>{comment.text}</Typography>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                </>
+                            )) : <></>}
                     </div>
                 </div>
             </CardContent>

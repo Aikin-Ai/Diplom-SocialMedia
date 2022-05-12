@@ -34,6 +34,40 @@ export async function getServerSideProps(context) {
                 "Тестовый текст",
             likes: 10,
             reposts: 5,
+            comments: [
+                {
+                    id: 1,
+                    user: {
+                        name: "Bill Gates",
+                        avatar: "https://cdn-icons-png.flaticon.com/512/147/147144.png",
+                    },
+                    text: "Тестовый комментарий",
+                },
+                {
+                    id: 2,
+                    user: {
+                        name: "Gill Bates",
+                        avatar: "https://cdn-icons-png.flaticon.com/512/147/147142.png",
+                    },
+                    text: "Тестовый комментарий",
+                },
+                {
+                    id: 3,
+                    user: {
+                        name: "Gill Bates",
+                        avatar: "https://cdn-icons-png.flaticon.com/512/147/147142.png",
+                    },
+                    text: "Truncation should be conditionally applicable on this long line of text as this is a much longer line than what the container can support.",
+                },
+                {
+                    id: 4,
+                    user: {
+                        name: "Gill Bates",
+                        avatar: "https://cdn-icons-png.flaticon.com/512/147/147142.png",
+                    },
+                    text: "Truncation should be conditionally applicable on this long line of text as this is a much longer line than what the container can support.",
+                }
+            ],
         },
         {
             id: 2,

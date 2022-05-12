@@ -28,6 +28,40 @@ export async function getServerSideProps(context) {
                 "Тестовый текст",
             likes: 10,
             reposts: 5,
+            comments: [
+                {
+                    id: 1,
+                    user: {
+                        name: "Bill Gates",
+                        avatar: "https://cdn-icons-png.flaticon.com/512/147/147144.png",
+                    },
+                    text: "Тестовый комментарий",
+                },
+                {
+                    id: 2,
+                    user: {
+                        name: "Gill Bates",
+                        avatar: "https://cdn-icons-png.flaticon.com/512/147/147142.png",
+                    },
+                    text: "Тестовый комментарий",
+                },
+                {
+                    id: 3,
+                    user: {
+                        name: "Gill Bates",
+                        avatar: "https://cdn-icons-png.flaticon.com/512/147/147142.png",
+                    },
+                    text: "Truncation should be conditionally applicable on this long line of text as this is a much longer line than what the container can support.",
+                },
+                {
+                    id: 4,
+                    user: {
+                        name: "Gill Bates",
+                        avatar: "https://cdn-icons-png.flaticon.com/512/147/147142.png",
+                    },
+                    text: "Truncation should be conditionally applicable on this long line of text as this is a much longer line than what the container can support.",
+                }
+            ],
         },
         {
             id: 2,
@@ -50,6 +84,24 @@ export async function getServerSideProps(context) {
                 "Тестовый текст",
             likes: 15,
             reposts: 2,
+            comments: [
+                {
+                    id: 1,
+                    user: {
+                        name: "Bill Gates",
+                        avatar: "https://cdn-icons-png.flaticon.com/512/147/147144.png",
+                    },
+                    text: "Тестовый комментарий",
+                },
+                {
+                    id: 2,
+                    user: {
+                        name: "Gill Bates",
+                        avatar: "https://cdn-icons-png.flaticon.com/512/147/147142.png",
+                    },
+                    text: "Тестовый комментарий",
+                },
+            ]
         }];
 
     return {
@@ -60,8 +112,10 @@ export async function getServerSideProps(context) {
 }
 
 export default function Profile({ posts }) {
-    const { data: session } = useSession();
-
+    const { data: session, status } = useSession();
+    if (status === "loading") {
+        return null;
+    }
     if (session) {
         return (
             <div className="container">
@@ -101,17 +155,17 @@ export default function Profile({ posts }) {
                         )}
                     </div>
                     <div className="profile__dob">
-                        <b>Дата рождения:</b><br/>10.01.2002
+                        <b>Дата рождения:</b><br />10.01.2002
                     </div>
                     <div className="profile__email">
-                        <b>Email:</b><br/>
+                        <b>Email:</b><br />
                         {session.user.email}
                     </div>
                     <div className="profile__followers">
-                        <b>Подписчиков:</b><br/>0
+                        <b>Подписчиков:</b><br />0
                     </div>
                     <div className="profile__following">
-                        <b>Подписок:</b><br/>0
+                        <b>Подписок:</b><br />0
                     </div>
                     {/* visible if user on his page */}
                     <div className="profile__new_post__button">
