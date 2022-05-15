@@ -218,6 +218,7 @@ export default function Profile({ posts }) {
                             fullWidth
                             variant="outlined"
                             multiline
+                            required
                         />
                         <label htmlFor="icon-button-file">
                             <Input accept="image/*" id="icon-button-file" type="file" />
