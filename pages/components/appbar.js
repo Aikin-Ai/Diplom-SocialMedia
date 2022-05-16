@@ -147,7 +147,7 @@ export default function PrimarySearchAppBar() {
         </IconButton>
         <p>Сообщения</p>
       </MenuItem>
-      <MenuItem>
+      {/* <MenuItem>
         <IconButton
           size="large"
           aria-label="show 17 new notifications"
@@ -158,7 +158,7 @@ export default function PrimarySearchAppBar() {
           </Badge>
         </IconButton>
         <p>Уведомления</p>
-      </MenuItem>
+      </MenuItem> */}
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           size="large"
@@ -292,7 +292,7 @@ export default function PrimarySearchAppBar() {
                 <MailIcon />
               </Badge>
             </IconButton>
-            <IconButton
+            {/* <IconButton
               size="large"
               aria-label="show 17 new notifications"
               color="inherit"
@@ -300,7 +300,7 @@ export default function PrimarySearchAppBar() {
               <Badge badgeContent={17} color="error">
                 <NotificationsIcon />
               </Badge>
-            </IconButton>
+            </IconButton> */}
             <IconButton
               size="large"
               edge="end"

@@ -57,7 +57,7 @@ export async function getServerSideProps(context) {
                         name: "Gill Bates",
                         avatar: "https://cdn-icons-png.flaticon.com/512/147/147142.png",
                     },
-                    text: "Truncation should be conditionally applicable on this long line of text as this is a much longer line than what the container can support.",
+                    text: "Этот текст должен переноситься так как он не влезает в одну строку.",
                 },
                 {
                     id: 4,
@@ -65,7 +65,7 @@ export async function getServerSideProps(context) {
                         name: "Gill Bates",
                         avatar: "https://cdn-icons-png.flaticon.com/512/147/147142.png",
                     },
-                    text: "Truncation should be conditionally applicable on this long line of text as this is a much longer line than what the container can support.",
+                    text: "Этот текст должен переноситься так как он не влезает в одну строку.",
                 }
             ],
         },
