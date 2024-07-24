@@ -1,4 +1,4 @@
-import { Grid, Typography, Divider, Avatar, Button, Card, CardContent, Tabs, Tab } from "@mui/material";
+import { Avatar, Button, Card, CardContent, Divider, Grid, Tab, Tabs, Typography } from "@mui/material";
 import React from "react";
 
 export async function getServerSideProps(context) {

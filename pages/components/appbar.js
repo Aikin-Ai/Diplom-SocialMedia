@@ -1,33 +1,28 @@
-import * as React from 'react';
-import { styled, alpha } from '@mui/material/styles';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import InputBase from '@mui/material/InputBase';
-import Badge from '@mui/material/Badge';
-import MenuItem from '@mui/material/MenuItem';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
-import AccountCircle from '@mui/icons-material/AccountCircle';
+import GroupIcon from '@mui/icons-material/Group';
+import HomeIcon from '@mui/icons-material/Home';
 import MailIcon from '@mui/icons-material/Mail';
-import NotificationsIcon from '@mui/icons-material/Notifications';
+import MenuIcon from '@mui/icons-material/Menu';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import PersonIcon from '@mui/icons-material/Person';
+import SearchIcon from '@mui/icons-material/Search';
+import { Avatar, ListItemButton } from '@mui/material';
+import AppBar from '@mui/material/AppBar';
+import Badge from '@mui/material/Badge';
+import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
+import IconButton from '@mui/material/IconButton';
+import InputBase from '@mui/material/InputBase';
 import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import HomeIcon from '@mui/icons-material/Home';
-import GroupIcon from '@mui/icons-material/Group';
-import PersonIcon from '@mui/icons-material/Person';
-import { Avatar, ListItemButton } from '@mui/material';
-import { useSession, signIn, signOut } from 'next-auth/react';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import { alpha, styled } from '@mui/material/styles';
+import { signIn, signOut, useSession } from 'next-auth/react';
 import Image from 'next/image';
+import * as React from 'react';
 import logo from '../../public/siteicon.png';
 
 const Search = styled('div')(({ theme }) => ({
@@ -114,8 +109,8 @@ export default function PrimarySearchAppBar() {
       onClose={handleMenuClose}
     >
       {session ? (
-          [<MenuItem key="1" onClick={function () { handleMenuClose; location.assign("/profile") }}>Профиль</MenuItem>,
-          <MenuItem key="2" onClick={signOut}>Выйти</MenuItem>]
+        [<MenuItem key="1" onClick={function () { handleMenuClose; location.assign("/profile") }}>Профиль</MenuItem>,
+        <MenuItem key="2" onClick={signOut}>Выйти</MenuItem>]
       ) : (
         <MenuItem onClick={signIn}>Войти</MenuItem>
       )}
